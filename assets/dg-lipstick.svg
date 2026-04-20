@@ -1,0 +1,24 @@
+<svg width="520" height="620" viewBox="0 0 520 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="620" rx="40" fill="url(#bg)"/>
+  <ellipse cx="260" cy="540" rx="112" ry="28" fill="#110E0C" fill-opacity=".2"/>
+  <rect x="212" y="214" width="96" height="226" rx="18" fill="url(#case)"/>
+  <path d="M236 154C236 136.327 250.327 122 268 122H276C293.673 122 308 136.327 308 154V214H236V154Z" fill="url(#lip)"/>
+  <rect x="224" y="424" width="72" height="36" rx="10" fill="#D1B07C"/>
+  <text x="260" y="290" text-anchor="middle" fill="#F5E9D4" font-family="Georgia, serif" font-size="24" letter-spacing="4">D&amp;G</text>
+  <defs>
+    <linearGradient id="bg" x1="88" y1="52" x2="428" y2="570" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D6C09A"/>
+      <stop offset=".42" stop-color="#6A5642"/>
+      <stop offset="1" stop-color="#161210"/>
+    </linearGradient>
+    <linearGradient id="case" x1="220" y1="214" x2="306" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#383028"/>
+      <stop offset=".5" stop-color="#171311"/>
+      <stop offset="1" stop-color="#0B0908"/>
+    </linearGradient>
+    <linearGradient id="lip" x1="244" y1="130" x2="302" y2="214" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BE8E69"/>
+      <stop offset="1" stop-color="#8A5F45"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,24 @@
+<svg width="520" height="620" viewBox="0 0 520 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="620" rx="40" fill="url(#bg)"/>
+  <ellipse cx="260" cy="520" rx="130" ry="30" fill="#221A14" fill-opacity=".18"/>
+  <rect x="160" y="250" width="200" height="124" rx="32" fill="url(#jar)"/>
+  <rect x="180" y="198" width="160" height="70" rx="20" fill="url(#lid)"/>
+  <rect x="196" y="282" width="128" height="58" rx="10" fill="#FBF7EF" fill-opacity=".92"/>
+  <text x="260" y="318" text-anchor="middle" fill="#6E5B3F" font-family="Georgia, serif" font-size="28" letter-spacing="6">SENSAI</text>
+  <defs>
+    <linearGradient id="bg" x1="96" y1="58" x2="416" y2="562" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7ECD7"/>
+      <stop offset=".45" stop-color="#D8C194"/>
+      <stop offset="1" stop-color="#564332"/>
+    </linearGradient>
+    <linearGradient id="jar" x1="170" y1="250" x2="346" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4E8CC"/>
+      <stop offset=".52" stop-color="#D4BC8D"/>
+      <stop offset="1" stop-color="#8E7346"/>
+    </linearGradient>
+    <linearGradient id="lid" x1="188" y1="198" x2="330" y2="268" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CFB07A"/>
+      <stop offset="1" stop-color="#8A6C41"/>
+    </linearGradient>
+  </defs>
+</svg>
