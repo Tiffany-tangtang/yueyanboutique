@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YUEYAN BOUTIQUE</title>
+    <meta
+      name="description"
+      content="YUEYAN BOUTIQUE — премиальный магазин косметики с современной структурой каталога и оформления заказа."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="home">
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-mark" href="./index.html" aria-label="YUEYAN BOUTIQUE home">
+          <span class="brand-mark__title">YUEYAN BOUTIQUE</span>
+          <span class="brand-mark__tag">премиальная косметика</span>
+        </a>
+        <form class="search-bar search-bar--header" action="./catalog.html" method="get">
+          <input type="search" name="q" placeholder="Поиск: Sensai, крем, помада..." />
+          <button class="button button--primary button--small" type="submit">Поиск</button>
+        </form>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="./catalog.html">Каталог</a>
+          <a href="./help.html">Помощь</a>
+          <a href="./checkout.html">Оформление</a>
+        </nav>
+        <button class="cart-button" id="cartToggle" type="button">
+          Корзина
+          <strong id="cartCount">0</strong>
+        </button>
+      </header>
+
+      <main>
+        <section class="hero hero--store">
+          <div class="hero__content">
+            <p class="eyebrow">Бутик косметики</p>
+            <h1>Структура для прямых продаж и премиальная подача бренда.</h1>
+            <p class="hero__copy">
+              Эта версия YUEYAN BOUTIQUE уже построена как полноценный магазин:
+              отдельный каталог с поиском, страницы товаров, центр помощи,
+              корзина и отдельная страница оформления заказа с готовностью к
+              подключению оплаты.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="./catalog.html">Открыть каталог</a>
+              <a class="button button--ghost" href="./help.html">Доставка и возврат</a>
+            </div>
+            <ul class="hero__notes">
+              <li>Основной ассортимент начинается с Sensai и D&amp;G Beauty</li>
+              <li>Поиск, каталог, карточки товара и оформление заказа вынесены в отдельные страницы</li>
+              <li>Сайт готов к следующему этапу: Stripe, CRM и логистика</li>
+            </ul>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero-card hero-card--tall">
+              <span>Поиск</span>
+              <p>Отдельный каталог с фильтрами, метками и логикой категорий.</p>
+            </div>
+            <div class="hero-card hero-card--wide">
+              <span>Заказ</span>
+              <p>Самостоятельная страница оформления с итогами корзины и сбором данных клиента.</p>
+            </div>
+            <div class="hero-orb hero-orb--one"></div>
+            <div class="hero-orb hero-orb--two"></div>
+          </div>
+        </section>
+
+        <section class="promo-bar">
+          <div>
+            <strong>Структура магазина</strong>
+            <span>Главная, каталог и поиск, карточка товара, оформление заказа и центр поддержки.</span>
+          </div>
+          <div>
+            <strong>Путь покупателя</strong>
+            <span>Поиск товара, просмотр категорий, добавление в корзину и отправка заявки на заказ.</span>
+          </div>
+          <div>
+            <strong>Следующий этап</strong>
+            <span>Можно подключить оплату и уведомления о заказах без переработки фронтенда.</span>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading section-heading--row">
+            <div>
+              <p class="eyebrow">Навигация по магазину</p>
+              <h2>Понятная структура каталога, адаптированная под YUEYAN BOUTIQUE</h2>
+            </div>
+          </div>
+          <div class="entry-grid">
+            <a class="entry-card" href="./catalog.html?brand=Sensai">
+              <span class="entry-card__eyebrow">Бренд</span>
+              <h3>Sensai</h3>
+              <p>Ассортимент с упором на уход: очищение, лосьоны, кремы и уход за сиянием кожи.</p>
+            </a>
+            <a class="entry-card" href="./catalog.html?brand=D%26G%20Beauty">
+              <span class="entry-card__eyebrow">Бренд</span>
+              <h3>D&amp;G Beauty</h3>
+              <p>Подборка ароматов и макияжа для ярких запусков и подарочных предложений.</p>
+            </a>
+            <a class="entry-card" href="./catalog.html?category=%D0%A3%D1%85%D0%BE%D0%B4%20%D0%B7%D0%B0%20%D0%BA%D0%BE%D0%B6%D0%B5%D0%B9">
+              <span class="entry-card__eyebrow">Категория</span>
+              <h3>Уход за кожей</h3>
+              <p>Переход к очищению, кремам, эссенциям и другим уходовым продуктам.</p>
+            </a>
+            <a class="entry-card" href="./catalog.html?tag=new">
+              <span class="entry-card__eyebrow">Подборка</span>
+              <h3>Новинки</h3>
+              <p>Новые поступления, акцентные продукты и товары для подарочных кампаний.</p>
+            </a>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Рекомендуемые товары</p>
+            <h2>Карточки на главной ведут в каталог и на страницы товаров</h2>
+          </div>
+          <div class="product-grid" id="featuredProducts"></div>
+        </section>
+
+        <section class="section">
+          <div class="two-column">
+            <div class="info-card">
+              <p class="eyebrow">Страницы поддержки</p>
+              <h2>Перед оплатой покупателям нужны понятные правила и доверие к магазину.</h2>
+              <p>
+                В магазине уже есть отдельная страница помощи с информацией о
+                доставке, возвратах, подлинности и поддержке по заказам.
+              </p>
+              <a class="button button--ghost" href="./help.html">Открыть центр помощи</a>
+            </div>
+            <div class="info-card info-card--warm">
+              <p class="eyebrow">Оформление заказа</p>
+              <h2>Текущая версия уже подходит для демонстрации, заявок и ручной обработки заказов.</h2>
+              <p>
+                Покупатель уже может собрать корзину и отправить заявку на заказ.
+                Следующий шаг — подключить реальную онлайн-оплату.
+              </p>
+              <a class="button button--primary" href="./checkout.html">Перейти к оформлению</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+      <div class="cart-drawer__header">
+        <h2>Корзина</h2>
+        <button class="icon-button" id="cartClose" type="button" aria-label="Close cart">×</button>
+      </div>
+      <div class="cart-drawer__body" id="cartItems"></div>
+      <div class="cart-drawer__footer">
+        <div class="cart-total">
+          <span>Итого по товарам</span>
+          <strong id="cartSubtotal">$0</strong>
+        </div>
+        <a class="button button--primary" href="./checkout.html">Перейти к оформлению</a>
+      </div>
+    </aside>
+    <div class="cart-backdrop" id="cartBackdrop" hidden></div>
+
+    <script src="./store.js"></script>
+  </body>
+</html>

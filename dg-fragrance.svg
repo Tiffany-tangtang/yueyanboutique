@@ -1,0 +1,21 @@
+<svg width="520" height="620" viewBox="0 0 520 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="620" rx="40" fill="url(#bg)"/>
+  <ellipse cx="260" cy="534" rx="126" ry="28" fill="#15110E" fill-opacity=".18"/>
+  <rect x="170" y="164" width="180" height="270" rx="34" fill="url(#glass)"/>
+  <rect x="226" y="122" width="68" height="58" rx="12" fill="#D8BC84"/>
+  <rect x="236" y="98" width="48" height="32" rx="8" fill="#201914"/>
+  <rect x="204" y="238" width="112" height="112" rx="18" fill="#FFF8ED" fill-opacity=".9"/>
+  <text x="260" y="298" text-anchor="middle" fill="#755D3B" font-family="Georgia, serif" font-size="24" letter-spacing="4">DEVOTION</text>
+  <defs>
+    <linearGradient id="bg" x1="94" y1="54" x2="420" y2="564" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F1E7D4"/>
+      <stop offset=".46" stop-color="#C6AD7C"/>
+      <stop offset="1" stop-color="#5A4838"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="184" y1="164" x2="338" y2="434" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7EDD7"/>
+      <stop offset=".48" stop-color="#E0C796"/>
+      <stop offset="1" stop-color="#A68954"/>
+    </linearGradient>
+  </defs>
+</svg>

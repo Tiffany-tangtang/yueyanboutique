@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Центр помощи | YUEYAN BOUTIQUE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="help">
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-mark" href="./index.html">
+          <span class="brand-mark__title">YUEYAN BOUTIQUE</span>
+          <span class="brand-mark__tag">премиальная косметика</span>
+        </a>
+        <form class="search-bar search-bar--header" action="./catalog.html" method="get">
+          <input type="search" name="q" placeholder="Поиск по бренду или товару..." />
+          <button class="button button--primary button--small" type="submit">Поиск</button>
+        </form>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="./catalog.html">Каталог</a>
+          <a href="./help.html">Помощь</a>
+          <a href="./checkout.html">Оформление</a>
+        </nav>
+        <button class="cart-button" id="cartToggle" type="button">
+          Корзина
+          <strong id="cartCount">0</strong>
+        </button>
+      </header>
+
+      <main>
+        <section class="section section--tight">
+          <div class="section-heading">
+            <p class="eyebrow">Центр помощи</p>
+            <h1 class="page-title">Правила магазина и поддержка покупателей</h1>
+            <p class="page-intro">
+              Эта страница добавляет магазину важные блоки доверия, которые покупатели ожидают увидеть перед заказом.
+            </p>
+          </div>
+          <div class="help-grid">
+            <article class="policy-card">
+              <h2>Доставка</h2>
+              <p>Заказы проверяются перед отправкой вручную. Срок доставки зависит от страны назначения и выбранной службы.</p>
+            </article>
+            <article class="policy-card">
+              <h2>Подлинность</h2>
+              <p>Товары должны поступать из надежных каналов поставки и сопровождаться информацией об упаковке, партии и защите.</p>
+            </article>
+            <article class="policy-card">
+              <h2>Возврат</h2>
+              <p>Возврат косметики зависит от санитарных ограничений. Нераспечатанные товары можно рассматривать индивидуально.</p>
+            </article>
+            <article class="policy-card">
+              <h2>Поддержка по заказам</h2>
+              <p>Здесь можно разместить контакты WhatsApp, Telegram, email и рекомендации по подбору ухода.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>Можно ли уже оформить заказ?</h3>
+              <p>Да. Пользователь уже может открыть каталог, собрать корзину и отправить заявку.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Онлайн-оплата уже подключена?</h3>
+              <p>Пока нет. Текущая версия подготовлена для подключения платежного сервиса следующим этапом.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Можно ли потом расширить каталог?</h3>
+              <p>Да. Текущая структура товаров позволяет добавлять новые бренды, категории и подборки.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+      <div class="cart-drawer__header">
+        <h2>Корзина</h2>
+        <button class="icon-button" id="cartClose" type="button" aria-label="Close cart">×</button>
+      </div>
+      <div class="cart-drawer__body" id="cartItems"></div>
+      <div class="cart-drawer__footer">
+        <div class="cart-total">
+          <span>Итого по товарам</span>
+          <strong id="cartSubtotal">$0</strong>
+        </div>
+        <a class="button button--primary" href="./checkout.html">Перейти к оформлению</a>
+      </div>
+    </aside>
+    <div class="cart-backdrop" id="cartBackdrop" hidden></div>
+
+    <script src="./store.js"></script>
+  </body>
+</html>

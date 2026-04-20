@@ -1,0 +1,23 @@
+<svg width="520" height="620" viewBox="0 0 520 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="620" rx="40" fill="url(#bg)"/>
+  <ellipse cx="263" cy="538" rx="118" ry="28" fill="#201914" fill-opacity=".16"/>
+  <rect x="194" y="114" width="132" height="326" rx="20" fill="url(#bottle)"/>
+  <rect x="213" y="82" width="94" height="48" rx="12" fill="#D8C8AA"/>
+  <rect x="231" y="58" width="58" height="32" rx="8" fill="#B69C6B"/>
+  <rect x="214" y="189" width="92" height="148" rx="10" fill="#F7F1E7" fill-opacity=".92"/>
+  <text x="260" y="248" text-anchor="middle" fill="#68573E" font-family="Georgia, serif" font-size="26" letter-spacing="6">SENSAI</text>
+  <text x="260" y="286" text-anchor="middle" fill="#8A7758" font-family="Arial, sans-serif" font-size="14" letter-spacing="2">ABSOLUTE SILK</text>
+  <text x="260" y="310" text-anchor="middle" fill="#8A7758" font-family="Arial, sans-serif" font-size="14" letter-spacing="2">MICRO MOUSSE WASH</text>
+  <defs>
+    <linearGradient id="bg" x1="90" y1="66" x2="420" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3E8D4"/>
+      <stop offset=".5" stop-color="#D0BC94"/>
+      <stop offset="1" stop-color="#5B4938"/>
+    </linearGradient>
+    <linearGradient id="bottle" x1="220" y1="114" x2="320" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2E8D5"/>
+      <stop offset=".45" stop-color="#D5C4A7"/>
+      <stop offset="1" stop-color="#9C865F"/>
+    </linearGradient>
+  </defs>
+</svg>
