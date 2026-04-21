@@ -1,77 +1,6 @@
 const STORAGE_KEY = "yueyan-boutique-cart";
 const ORDERS_KEY = "yueyan-boutique-orders";
 
-const PRODUCTS = [
-  {
-    id: "sensai-wash",
-    name: "Sensai Absolute Silk Micro Mousse Wash",
-    brand: "Sensai",
-    category: "Уход за кожей",
-    price: 78,
-    badge: "Хит продаж",
-    visual: "sensai",
-    image: "./assets/sensai-wash.svg",
-    tags: ["очищение", "new"],
-    description: "Легкая очищающая мусс-пенка для утреннего ухода и мягкого шелковистого финиша.",
-    details: [
-      "Подходит для витрины с акцентом на премиальный уход",
-      "Сильный флагманский SKU для разделов Sensai",
-      "Хорошо сочетается с лосьонами и кремами в допродажах",
-    ],
-  },
-  {
-    id: "sensai-cream",
-    name: "Sensai Cellular Performance Cream",
-    brand: "Sensai",
-    category: "Уход за кожей",
-    price: 164,
-    badge: "Новинка",
-    visual: "gold",
-    image: "./assets/sensai-cream.svg",
-    tags: ["крем", "new", "сияние"],
-    description: "Насыщенный антивозрастной крем с акцентом на сияние кожи, комфорт и премиальный уходовый ритуал.",
-    details: [
-      "Премиальный крем для высокого среднего чека",
-      "Подходит для антивозрастных и сияющих уходовых подборок",
-      "Хорошо работает в наборах и подарочных комплектах",
-    ],
-  },
-  {
-    id: "dg-lipstick",
-    name: "D&G The Only One Matte Lipstick",
-    brand: "D&G Beauty",
-    category: "Макияж",
-    price: 49,
-    badge: "Выбор редакции",
-    visual: "dg",
-    image: "./assets/dg-lipstick.svg",
-    tags: ["помада", "цвет"],
-    description: "Насыщенная матовая помада с бархатным финишем для ярких fashion-образов.",
-    details: [
-      "Удобная входная цена для новых покупателей",
-      "Подходит для визуальных рекламных кампаний",
-      "Легко добавляется как дополнительный товар в корзину",
-    ],
-  },
-  {
-    id: "dg-fragrance",
-    name: "D&G Devotion Eau de Parfum",
-    brand: "D&G Beauty",
-    category: "Ароматы",
-    price: 118,
-    badge: "Лимитировано",
-    visual: "rose",
-    image: "./assets/dg-fragrance.svg",
-    tags: ["аромат", "подарок", "new"],
-    description: "Теплый сияющий аромат, подходящий для подарков, премиальных подборок и акцентных страниц.",
-    details: [
-      "Подходит для сезонных подарочных кампаний",
-      "Помогает расширить магазин за пределы ухода за кожей",
-      "Хороший акцентный товар для межкатегорийной витрины",
-    ],
-  },
-];
-
 const formatMoney = (amount) =>
   new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -231,6 +160,7 @@ function cardMarkup(product) {
       <div class="product-card__body">
         <p class="product-card__meta">${product.brand} • ${product.category}</p>
         <h3><a href="./product.html?id=${encodeURIComponent(product.id)}">${product.name}</a></h3>
+        <p class="product-card__line">${product.line} · ${product.volume}</p>
         <p class="product-card__copy">${product.description}</p>
         <div class="product-card__footer">
           <strong>${formatMoney(product.price)}</strong>
@@ -321,12 +251,15 @@ function renderProductPage() {
     <div class="product-detail__panel">
       <p class="product-detail__brand">${item.brand} • ${item.category}</p>
       <h1>${item.name}</h1>
+      <p class="product-detail__line">${item.line} · ${item.subcategory} · ${item.volume}</p>
       <p class="product-detail__copy">${item.description}</p>
       <div class="product-detail__price-row">
         <strong class="product-detail__price">${formatMoney(item.price)}</strong>
         <span class="product-detail__badge">${item.tags.includes("new") ? "Новинка" : "Рекомендация бутика"}</span>
       </div>
       <ul class="product-detail__specs">
+        ${item.shades.length ? `<li><strong>Оттенки:</strong> ${item.shades.join(", ")}</li>` : ""}
+        <li><strong>Способ применения:</strong> ${item.howToUse}</li>
         ${item.details.map((line) => `<li>${line}</li>`).join("")}
       </ul>
       <div class="product-detail__actions">
@@ -337,6 +270,7 @@ function renderProductPage() {
         </div>
         <button class="button button--primary" id="productAddToCart" type="button">В корзину</button>
       </div>
+      <a class="product-detail__official" href="${item.officialUrl}" target="_blank" rel="noreferrer">Официальная страница бренда</a>
     </div>
   `;
 
