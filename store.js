@@ -1,5 +1,12 @@
 const STORAGE_KEY = "yueyan-boutique-cart";
 const ORDERS_KEY = "yueyan-boutique-orders";
+const SUPPORT_LINKS = {
+  telegram: "https://t.me/your_yueyan_support",
+  whatsapp: "https://wa.me/00000000000",
+  email: "mailto:hello@yueyanboutique.com",
+};
+const LOCAL_PRODUCTS = Array.isArray(window.PRODUCTS) ? window.PRODUCTS : [];
+let activeProducts = LOCAL_PRODUCTS;
 
 const formatMoney = (amount) =>
   new Intl.NumberFormat("en-US", {
@@ -24,7 +31,7 @@ function saveState(key, value) {
 let cart = loadState(STORAGE_KEY, []);
 
 function getProduct(id) {
-  return PRODUCTS.find((product) => product.id === id);
+  return activeProducts.find((product) => product.id === id);
 }
 
 function getCartCount() {
@@ -178,7 +185,9 @@ function renderFeaturedProducts() {
   if (!container) {
     return;
   }
-  container.innerHTML = PRODUCTS.map(cardMarkup).join("");
+  const featuredProducts = activeProducts.filter((product) => product.featured).slice(0, 8);
+  const productsToRender = featuredProducts.length ? featuredProducts : activeProducts.slice(0, 8);
+  container.innerHTML = productsToRender.map(cardMarkup).join("");
 }
 
 function filterProducts(products, params, activeFilter) {
@@ -223,7 +232,7 @@ function renderCatalog(activeFilter = "all") {
     searchInput.value = search;
   }
 
-  const results = filterProducts(PRODUCTS, params, activeFilter);
+  const results = filterProducts(activeProducts, params, activeFilter);
   title.textContent = search ? `Результаты по запросу "${search}"` : "Каталог косметики";
   meta.textContent = `Показано товаров: ${results.length}`;
 
@@ -286,10 +295,84 @@ function renderProductPage() {
   document.getElementById("productAddToCart").addEventListener("click", () => addToCart(item.id, qty));
 
   if (related) {
-    related.innerHTML = PRODUCTS.filter((productItem) => productItem.id !== item.id)
+    related.innerHTML = activeProducts.filter((productItem) => productItem.id !== item.id)
       .slice(0, 3)
       .map(cardMarkup)
       .join("");
+  }
+}
+
+function normalizeSanityProduct(product) {
+  return {
+    id: product.slug || product._id,
+    name: product.name || "Untitled product",
+    brand: product.brand || "YUEYAN BOUTIQUE",
+    line: product.line || "",
+    category: product.category || "Каталог",
+    subcategory: product.subcategory || "",
+    price: Number(product.price || 0),
+    badge: product.badge || "Бутик",
+    visual: product.visual || "sensai",
+    image: product.image || "./assets/sensai-wash.svg",
+    volume: product.volume || "",
+    shades: product.shades || [],
+    tags: product.tags || [],
+    description: product.description || "",
+    howToUse: product.howToUse || "",
+    details: product.details || [],
+    officialUrl: product.officialUrl || "#",
+    featured: Boolean(product.featured),
+  };
+}
+
+async function fetchSanityProducts() {
+  const config = window.SANITY_CONFIG;
+  if (!config?.enabled || !config.projectId || config.projectId === "YOUR_SANITY_PROJECT_ID") {
+    return null;
+  }
+
+  const query = `*[_type == "product" && published == true] | order(brand asc, name asc) {
+    _id,
+    name,
+    "slug": slug.current,
+    brand,
+    line,
+    category,
+    subcategory,
+    price,
+    badge,
+    visual,
+    "image": mainImage.asset->url,
+    volume,
+    shades,
+    tags,
+    description,
+    howToUse,
+    details,
+    officialUrl,
+    featured
+  }`;
+  const encodedQuery = encodeURIComponent(query);
+  const url = `https://${config.projectId}.apicdn.sanity.io/v${config.apiVersion}/data/query/${config.dataset}?query=${encodedQuery}`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`Sanity request failed: ${response.status}`);
+  }
+
+  const payload = await response.json();
+  return (payload.result || []).map(normalizeSanityProduct);
+}
+
+async function loadProducts() {
+  try {
+    const sanityProducts = await fetchSanityProducts();
+    if (sanityProducts?.length) {
+      activeProducts = sanityProducts;
+    }
+  } catch (error) {
+    console.warn("Sanity products unavailable, using local products.", error);
+    activeProducts = LOCAL_PRODUCTS;
   }
 }
 
@@ -415,8 +498,45 @@ function setupCatalogFilters() {
   });
 }
 
-function initPage() {
+function renderSupportWidget() {
+  if (document.getElementById("supportWidget")) {
+    return;
+  }
+
+  const widget = document.createElement("aside");
+  widget.className = "support-widget";
+  widget.id = "supportWidget";
+  widget.innerHTML = `
+    <button class="support-widget__toggle" id="supportToggle" type="button" aria-expanded="false">
+      <span>Помощь</span>
+      <strong>?</strong>
+    </button>
+    <div class="support-widget__panel" id="supportPanel" hidden>
+      <p class="support-widget__eyebrow">Онлайн-консультант</p>
+      <h2>Нужна помощь с выбором?</h2>
+      <p>Напишите нам, и мы поможем подобрать уход, оттенок или оформить заказ.</p>
+      <div class="support-widget__links">
+        <a href="${SUPPORT_LINKS.telegram}" target="_blank" rel="noreferrer">Telegram</a>
+        <a href="${SUPPORT_LINKS.whatsapp}" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a href="${SUPPORT_LINKS.email}">Email</a>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(widget);
+
+  const toggle = document.getElementById("supportToggle");
+  const panel = document.getElementById("supportPanel");
+  toggle.addEventListener("click", () => {
+    const isOpen = !panel.hidden;
+    panel.hidden = isOpen;
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+  });
+}
+
+async function initPage() {
+  await loadProducts();
   renderCartDrawer();
+  renderSupportWidget();
   setupGlobalHandlers();
 
   const page = document.body.dataset.page;
