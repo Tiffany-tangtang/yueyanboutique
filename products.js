@@ -1,4 +1,4 @@
-const PRODUCTS = [
+window.PRODUCTS = [
   {
     id: "sensai-absolute-silk-micro-mousse-wash",
     name: "Sensai Absolute Silk Micro Mousse Wash",

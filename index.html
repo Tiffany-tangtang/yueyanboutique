@@ -20,8 +20,11 @@
     <div class="page-shell">
       <header class="site-header">
         <a class="brand-mark" href="./index.html" aria-label="YUEYAN BOUTIQUE home">
-          <span class="brand-mark__title">YUEYAN BOUTIQUE</span>
-          <span class="brand-mark__tag">премиальная косметика</span>
+          <img class="brand-mark__logo" src="./assets/yueyan-logo.png" alt="YUEYAN BOUTIQUE" />
+          <span>
+            <span class="brand-mark__title">YUEYAN BOUTIQUE</span>
+            <span class="brand-mark__tag">премиальная косметика</span>
+          </span>
         </a>
         <form class="search-bar search-bar--header" action="./catalog.html" method="get">
           <input type="search" name="q" placeholder="Поиск: Sensai, крем, помада..." />
@@ -42,12 +45,11 @@
         <section class="hero hero--store">
           <div class="hero__content">
             <p class="eyebrow">Бутик косметики</p>
-            <h1>Структура для прямых продаж и премиальная подача бренда.</h1>
+            <h1>Свежий beauty-бутик с ярким характером YUEYAN.</h1>
             <p class="hero__copy">
-              Эта версия YUEYAN BOUTIQUE уже построена как полноценный магазин:
-              отдельный каталог с поиском, страницы товаров, центр помощи,
-              корзина и отдельная страница оформления заказа с готовностью к
-              подключению оплаты.
+              YUEYAN BOUTIQUE объединяет премиальную косметику, понятный каталог
+              и живую поддержку покупателей. Новый визуальный стиль строится вокруг
+              фирменного зеленого круга, желтой птицы и чистого белого пространства.
             </p>
             <div class="hero__actions">
               <a class="button button--primary" href="./catalog.html">Открыть каталог</a>
@@ -60,6 +62,7 @@
             </ul>
           </div>
           <div class="hero__visual" aria-hidden="true">
+            <img class="hero-logo" src="./assets/yueyan-logo.png" alt="" />
             <div class="hero-card hero-card--tall">
               <span>Поиск</span>
               <p>Отдельный каталог с фильтрами, метками и логикой категорий.</p>
@@ -168,6 +171,7 @@
     </aside>
     <div class="cart-backdrop" id="cartBackdrop" hidden></div>
 
+    <script src="./sanity-config.js"></script>
     <script src="./products.js"></script>
     <script src="./store.js"></script>
   </body>
